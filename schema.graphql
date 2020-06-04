@@ -1,0 +1,46 @@
+type Query {
+  items: [Items!],
+  points: [Points!],
+  point(id: ID): Points,
+}
+
+type Mutation {
+  novoPoint(
+      name: String
+      image_url: String
+      email: String
+      whatsapp: String
+      latitude: String
+      longitude: String
+      city: String
+      uf: String
+      items: [ID]
+  ): Points
+  excluirPoint(
+      id: ID
+  ): Status
+}
+
+type Items{
+    id: ID
+    title: String
+    image_url: String
+} 
+
+type Points{
+    id: ID
+    name: String
+    image_url: String
+    email: String
+    whatsapp: String
+    latitude: String
+    longitude: String
+    city: String
+    uf: String
+    items: [Items]
+} 
+
+type Status{
+    cod: ID
+    message: String
+} 
